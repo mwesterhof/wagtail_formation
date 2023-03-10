@@ -1,0 +1,9 @@
+{% extends "formation/blocks/base_field.html" %}
+
+{% block input_tag %}
+<select id="{{ field_id }}" name="{{ self.name }}">
+    {% for option in self.options %}
+    <option value="{{ option.name }}">{{ option.label }}</option>
+    {% endfor %}
+</select>
+{% endblock %}

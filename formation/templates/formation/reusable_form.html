@@ -1,0 +1,6 @@
+{% load wagtailcore_tags %}
+
+
+{% for child in self.form_content %}
+{% include_block child with page=self %}
+{% endfor %}

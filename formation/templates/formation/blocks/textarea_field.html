@@ -1,0 +1,5 @@
+{% extends "formation/blocks/base_field.html" %}
+
+{% block input_tag %}
+<textarea id="{{ field_id }}" name="{{ self.name }}">{{ field_value }}</textarea>
+{% endblock %}

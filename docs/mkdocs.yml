@@ -1,0 +1,12 @@
+site_name: Wagtail formation
+theme:
+    name: readthedocs
+
+nav:
+    - Home: index.md
+    - Features: features.md
+    - Installation: installation.md
+    - Basic example: basic.md
+    - Advanced examples: advanced.md
+    - Recipes: recipes.md
+    - Documentation to-do: todo.md

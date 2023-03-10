@@ -1,0 +1,14 @@
+{% extends "formation/blocks/base_field.html" %}
+
+{% block label_tag %}{% endblock %}
+
+{% block input_tag %}
+<fieldset>
+    <legend>{{ self.label }}</legend>
+
+    {% for option in self.options %}
+    <input type="radio" id="{{ field_id }}_{{ forloop.counter }}" name="{{ self.name }}" value="{{ option.name }}" />
+    <label for="{{ field_id }}_{{ forloop.counter }}">{{ option.label }}</label>
+    {% endfor %}
+</fieldset>
+{% endblock %}

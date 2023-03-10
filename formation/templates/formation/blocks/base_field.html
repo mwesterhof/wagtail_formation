@@ -1,0 +1,17 @@
+<p>
+    {% if errors %}
+    <ul>
+        {% for error in errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% block label_tag %}
+    <label for="{{ field_id }}">{{ self.label }}</label>
+    {% endblock %}
+
+    {% block input_tag %}
+    <input id="{{ field_id }}" name="{{ self.name }}" value="{{ field_value }}" type="text" />
+    {% endblock %}
+</p>
