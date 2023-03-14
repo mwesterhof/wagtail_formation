@@ -22,6 +22,8 @@ editor will then be able to create whatever layout they want, with full wagtail 
 then do whatever it was written to do, and isn't only restricted to basic email sending, for instance. The following
 are all examples of the exact same form type, with different custom layouts;
 
-*(TODO: several screenshots of something like the reallyelaborateemailform, clearly demonstrating different layout/container
-options, with some additional content like images and richtext sprinkled in. also, have at least one with the submit
-button in a different place)*
+![basic](images/simpleform_basic.png)
+
+![silly](images/simpleform_silly.png)
+
+![verysilly](images/simpleform_verysilly.png)
