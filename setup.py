@@ -10,7 +10,11 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = []
+
+requirements = [
+    'cryptography==39.0.0',
+    'wagtail-generic-chooser==0.5.1',
+]
 
 test_requirements = []
 

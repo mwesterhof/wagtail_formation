@@ -15,7 +15,7 @@ In order to implement the form for use in wagtail pages, the developer can simpl
     from formation.blocks import (
         BaseFormBlock, BooleanFieldBlock, SubmitButtonBlock, TextFieldBlock
     )
-    from wagtail.blocks import EmailBlock, RichTextBlock
+    from wagtail.blocks import EmailBlock, RichTextBlock, StreamBlock
     from wagtail.images.blocks import ImageChooserBlock
 
 
@@ -47,7 +47,7 @@ Next, we make sure that the form block can contain content, including its fields
 
 ```
     class MessageFormBlock(BaseFormBlock):
-        fields = blocks.StreamBlock([
+        fields = StreamBlock([
             ('text', TextFieldBlock()),
             ('check', BooleanFieldBlock()),
             ('submit_button', SubmitButtonBlock()),
@@ -62,7 +62,7 @@ As the `form_valid` method expects 2 fields to exist in the form, we can registe
 ```
     mandatory_field_blocks = [
         ('name', TextFieldBlock),
-        ('message', EmailFieldBlock),
+        ('message', TextFieldBlock),
     ]
 ```
 
@@ -82,7 +82,7 @@ This gives us the following implementation, finally:
     class MessageFormBlock(BaseFormBlock):
         send_emails_to = EmailBlock()
 
-        fields = blocks.StreamBlock([
+        fields = StreamBlock([
             ('text', TextFieldBlock()),
             ('check', BooleanFieldBlock()),
             ('submit_button', SubmitButtonBlock()),
@@ -92,12 +92,12 @@ This gives us the following implementation, finally:
 
         mandatory_field_blocks = [
             ('name', TextFieldBlock),
-            ('message', EmailFieldBlock),
+            ('message', TextFieldBlock),
         ]
 
         def form_valid(self, value, form):
             name = form.cleaned_data['name']
-            message = forms.cleaned_data['message']
+            message = form.cleaned_data['message']
 
             email_to = value['send_emails_to']
 

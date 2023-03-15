@@ -1,7 +1,7 @@
 # Documentation to-do
 
 
-- [ ] provide screenshots
-- [ ] provide full steps
-- [ ] create recipes
-- [ ] walk through documented steps in detail to verify accuracy
+- [X] provide screenshots
+- [X] provide full steps
+- [X] create recipes
+- [X] walk through documented steps in detail to verify accuracy

@@ -1,16 +1,14 @@
 {% load wagtailcore_tags formation_tags %}
 
-{% if form_success %}
-<h2>your post was successfull</h2>
-{% else %}
-<form class="ajaxForm" style="border:1px solid black" method="POST" action="{% url "process-block-form" %}">
-    {% page_token page self.block_id %}
 
-    <div class="fields">
-        {% for child in self.fields %}
+<form class="formation elaborate" method="POST" action="{% url "process-block-form" %}">
+    {% if form_success %}
+        <p>your message was sent</p>
+
+    {% endif %}
+    {% page_token page self.id %}
+
+    {% for child in self.fields %}
         {% include_block child %}
-        {% endfor %}
-    </div>
-    <input type="submit" />
+    {% endfor %}
 </form>
-{% endif %}
