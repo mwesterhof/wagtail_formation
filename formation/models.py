@@ -1,6 +1,6 @@
 from django.db import models
 from wagtail.fields import StreamField
-from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.admin.panels import FieldPanel
 
 from .blocks import registered_forms
 

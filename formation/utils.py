@@ -5,8 +5,8 @@ import os
 
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from django.contrib.contenttypes.models import ContentType
-from wagtail.core.blocks import ListBlock, StreamBlock, StructBlock
-from wagtail.core.fields import StreamField
+from wagtail.blocks import ListBlock, StreamBlock, StructBlock
+from wagtail.fields import StreamField
 
 
 class TokenProcessor:

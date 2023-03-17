@@ -1,7 +1,7 @@
 import uuid
 
 from django import forms
-from wagtail.core import blocks
+from wagtail import blocks
 
 
 class FieldBlockBase(blocks.StructBlock):
