@@ -39,10 +39,10 @@ setup(
     include_package_data=True,
     keywords='wagtail_formation',
     name='wagtail_formation',
-    packages=find_packages(include=['wagtail_formation', 'wagtail_formation.*']),
+    packages=find_packages(include=['formation', 'formation.*']),
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/mwesterhof/wagtail_formation',
-    version='0.1.2',
+    version='0.1.3',
     zip_safe=False,
 )
