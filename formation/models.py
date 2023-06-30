@@ -7,7 +7,7 @@ from .blocks import registered_forms
 
 class ReusableForm(models.Model):
     name = models.CharField(max_length=200)
-    form_content = StreamField(registered_forms, min_num=1, max_num=1, use_json_field=False)
+    form_content = StreamField(registered_forms, min_num=1, max_num=1, use_json_field=True)
 
     panels = [
         FieldPanel('name'),
