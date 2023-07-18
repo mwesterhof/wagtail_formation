@@ -1,7 +1,8 @@
 {% load wagtailcore_tags formation_tags %}
 
 
-<form class="formation elaborate" method="POST" action="{% url "process-block-form" %}">
+<form enctype="multipart/form-data" class="formation elaborate" method="POST" action="{% url "process-block-form" %}">
+    {{ form.non_field_errors }}
     {% if form_success %}
         <p>your message was sent</p>
 

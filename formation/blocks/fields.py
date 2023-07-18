@@ -1,7 +1,11 @@
 import uuid
+from collections import namedtuple
 
 from django import forms
 from wagtail import blocks
+
+
+FieldSpec = namedtuple('FieldSpec', ['name', 'field', 'block'])
 
 
 class FieldBlockBase(blocks.StructBlock):
@@ -15,10 +19,18 @@ class FieldBlockBase(blocks.StructBlock):
         self.field_kwargs = kwargs.pop('field_kwargs', {})
         super().__init__(*args, **kwargs)
 
-    def get_named_field(self, value):
+    def get_field_spec(self, value):
         kwargs = self.field_kwargs.copy()
         kwargs['required'] = value['is_required']
-        return value['name'], self.get_field(value, kwargs)
+
+        return FieldSpec(
+            name=value['name'],
+            field=self.get_field(value, kwargs),
+            block=self
+        )
+
+    def clean_field(self, value):
+        return value
 
     def get_field(self, value, field_kwargs):
         return forms.Field(label=value['label'], required=value['is_required'], **field_kwargs)
@@ -138,6 +150,15 @@ class EmailFieldBlock(FieldBlockBase):
     class Meta:
         template = 'formation/blocks/email_field.html'
         icon = 'mail'
+
+
+class FileFieldBlock(FieldBlockBase):
+    def get_field(self, value, field_kwargs):
+        return forms.FileField(label=value['label'], **field_kwargs)
+
+    class Meta:
+        template = 'formation/blocks/file_field.html'
+        icon = 'doc-full'
 
 
 BASIC_FIELD_SPEC = [

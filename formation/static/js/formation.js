@@ -7,11 +7,16 @@ $(document).ready(() => {
         event.stopPropagation();
         event.preventDefault();
 
+        var formData = new FormData(this);
+
         $.ajax({
             type: "POST",
             url: url,
-            data: form.serialize(),
+            data: formData,
             headers: {'X-CSRFToken': csrftoken},
+            cache: false,
+            processData: false,
+            contentType: false,
             success: function(data) {
                 $('form.formation').unbind('submit', handleFormSubmit);
                 form.replaceWith(data);

@@ -12,7 +12,7 @@ class ProcessBlockFormView(View):
         content_type_id, object_id, block_id = token_processor.unpack_token(form_token)
         block_value = find_block_value(content_type_id, object_id, block_id)
         block = block_value.block
-        form = block.get_form_instance(block_value, request.POST)
+        form = block.get_form_instance(block_value, request.POST, request.FILES)
 
         if form.is_valid():
             form_success = True

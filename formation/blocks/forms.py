@@ -69,23 +69,44 @@ class BaseFormBlock(blocks.StructBlock):
         extract_elements_recursive(fields, blocks, _input_block_check, False)
         return blocks
 
+    def clean_form(cls, cleaned_data):
+        return cleaned_data
+
     def _get_form_class(cls, value):
-        blocks = cls._get_fields(value)
+        named_fieldblocks = [
+            element.block.get_field_spec(element)
+            for element in cls._get_fields(value)
+        ]
+
+        def _wrap_clean_field_method(fieldblock):
+            def clean_field(form):
+                return fieldblock.block.clean_field(form.cleaned_data[fieldblock.name])
+            return clean_field
+
+        def clean_form(form):
+            return cls.clean_form(form.cleaned_data)
 
         return type(
             cls._get_form_class_name(),
             (forms.Form,),
             dict(
                 [
-                    element.block.get_named_field(element)
-                    for element in blocks
+                    (fieldblock.name, fieldblock.field)
+                    for fieldblock in named_fieldblocks
+                ] +
+                [
+                    (f'clean_{fieldblock.name}', _wrap_clean_field_method(fieldblock))
+                    for fieldblock in named_fieldblocks
+                ] +
+                [
+                    ('clean', clean_form),
                 ]
             )
         )
 
-    def get_form_instance(cls, value, data=None):
+    def get_form_instance(cls, value, data=None, files=None):
         form_class = cls._get_form_class(value)
-        return form_class(data)
+        return form_class(data, files)
 
     def get_context(self, value, parent_context=None):
         self.id = self._get_block_id(parent_context)
