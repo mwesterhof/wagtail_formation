@@ -1,9 +1,13 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect
 from django.views.generic import View
 from generic_chooser.views import ModelChooserViewSet
 
 from formation.models import ReusableForm
 from formation.utils import find_block_value, token_processor
+
+
+def is_redirect(response):
+    return isinstance(response, HttpResponseRedirect) or isinstance(response, HttpResponsePermanentRedirect)
 
 
 class ProcessBlockFormView(View):
@@ -16,17 +20,24 @@ class ProcessBlockFormView(View):
 
         if form.is_valid():
             form_success = True
-            block.form_valid(block_value, form)
+            block_response = block.form_valid(block_value, form)
         else:
             form_success = False
-            block.form_invalid(block_value, form)
+            block_response = block.form_invalid(block_value, form)
+
+        if is_redirect(block_response):  # block form handler decided to bypass AJAX
+            response = HttpResponse(block_response.url)
+            response['formationReplace'] = 0
+            return response
 
         result = block_value.render_as_block({
             'form_success': form_success,
             'form_data': request.POST,
             'form_token': form_token,
         })
-        return HttpResponse(result)
+        response = HttpResponse(result)
+        response.headers['formationReplace'] = 1
+        return response
 
 
 class ReusableFormChooserViewSet(ModelChooserViewSet):

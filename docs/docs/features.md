@@ -9,3 +9,5 @@
 * The structure of the form, and additional fields, are entirely up to the CMS user
 * Form content can include any wagtail block, not just ones representing fields
 * Multiple forms can coexist on any page or other `StreamField` enabled object, and feedback is presented individually
+* Support for field- and form based *clean* methods
+* Optional support for a more traditional *success_url* type form handling

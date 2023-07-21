@@ -17,10 +17,16 @@ $(document).ready(() => {
             cache: false,
             processData: false,
             contentType: false,
-            success: function(data) {
-                $('form.formation').unbind('submit', handleFormSubmit);
-                form.replaceWith(data);
-                $('form.formation').on('submit', handleFormSubmit);
+            success: function(data, statusText, response) {
+                if(response.getResponseHeader('formationReplace') == 1) {
+                    $('form.formation').unbind('submit', handleFormSubmit);
+                    form.replaceWith(data);
+                    $('form.formation').on('submit', handleFormSubmit);
+                }
+                else {
+                    window.location.href = data;
+                }
+
             }
         });
     }
