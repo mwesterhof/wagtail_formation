@@ -18,13 +18,13 @@ $(document).ready(() => {
             processData: false,
             contentType: false,
             success: function(data, statusText, response) {
-                if(response.getResponseHeader('formationReplace') == 1) {
+                if(response.getResponseHeader('formationReplace') == 0) {
+                    window.location.href = data;
+                }
+                else {
                     $('form.formation').unbind('submit', handleFormSubmit);
                     form.replaceWith(data);
                     $('form.formation').on('submit', handleFormSubmit);
-                }
-                else {
-                    window.location.href = data;
                 }
 
             }
