@@ -16,6 +16,15 @@ INSTALLED_APPS = [
 ]
 ```
 
+Because marking form blocks as reusable in your code will affect a model definition in formation, you'll have to choose
+a project folder to house formation migrations;
+
+```
+MIGRATION_MODULES = {
+    'formation': 'formation_migrations',  # this can be any convenient location in your project
+}
+```
+
 Finally, make sure that the following is registered somewhere in your url config;
 
 ```
@@ -28,6 +37,8 @@ urlpatterns = [
     ...
 ]
 ```
+
+Make sure to create missing migrations and run them.
 
 Forms should be posted through AJAX requests. You may implement this yourself, or rely on formation's example
 implementation;
