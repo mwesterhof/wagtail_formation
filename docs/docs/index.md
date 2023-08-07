@@ -10,7 +10,8 @@ restrictions;
   to use multiple forms on one page, and can't add forms as an element to more generic page types.
 * [Wagtail Streamforms](https://wagtailstreamforms.readthedocs.io/en/latest/advanced.html), an implementation that aims
   to provide forms in a page's streaming content. This is handled through a chooser, which means that pages will only
-  hold a reference to a form object. This can be overly restrictive.
+  hold a reference to a form object. This can be overly restrictive. It also has significant restrictions on the
+  flexibility on content and layout, and also adds complications when extending the functionality.
 * [Wagtail Form Blocks](https://wagtailformblocks.readthedocs.io/en/latest/), another implementation that relies on a
   chooser. It provides very limited flexibility as to what a form actually does, and also makes rendering the form
   somewhat convoluted for more complex layouts.
