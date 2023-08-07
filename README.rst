@@ -26,7 +26,10 @@ Build forms from wagtail blocks
 Features
 --------
 
-* TODO
+* Implement truly dynamic forms in a wagtail CMS
+* Technical details are handled by the developer, everything else is content
+* Form content is as dynamic as page content can be, fully leveraging the power of StreamBlocks
+* Forms can be created on a page itself, or reused accross multiple pages
 
 Credits
 -------
