@@ -75,7 +75,7 @@ This gives us the following implementation, finally:
     from formation.blocks import (
         BaseFormBlock, BooleanFieldBlock, SubmitButtonBlock, TextFieldBlock
     )
-    from wagtail.blocks import EmailBlock, RichTextBlock
+    from wagtail.blocks import EmailBlock, RichTextBlock, StreamBlock
     from wagtail.images.blocks import ImageChooserBlock
 
 
