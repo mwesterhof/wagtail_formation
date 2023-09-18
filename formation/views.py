@@ -20,10 +20,10 @@ class ProcessBlockFormView(View):
 
         if form.is_valid():
             form_success = True
-            block_response = block.form_valid(block_value, form)
+            block_response = block.form_valid(request, block_value, form)
         else:
             form_success = False
-            block_response = block.form_invalid(block_value, form)
+            block_response = block.form_invalid(request, block_value, form)
 
         if is_redirect(block_response):  # block form handler decided to bypass AJAX
             response = HttpResponse(block_response.url)

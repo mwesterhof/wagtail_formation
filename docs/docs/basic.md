@@ -29,7 +29,7 @@ As this subclasses `BaseFormBlock`, we can simply override its `form_valid` meth
 ```
     class MessageFormBlock(BaseFormBlock):
         ...
-        def form_valid(self, value, form):
+        def form_valid(self, request, value, form):
             name = form.cleaned_data['name']
             message = forms.cleaned_data['message']
 
@@ -95,7 +95,7 @@ This gives us the following implementation, finally:
             ('message', TextFieldBlock),
         ]
 
-        def form_valid(self, value, form):
+        def form_valid(self, request, value, form):
             name = form.cleaned_data['name']
             message = form.cleaned_data['message']
 

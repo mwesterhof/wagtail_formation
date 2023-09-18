@@ -22,7 +22,7 @@ class RedirectOnSuccessFormBlock(BaseFormBlock):
 
     ...
 
-    def form_valid(self, value, form):
+    def form_valid(self, request, value, form):
         return HttpResponseRedirect(value['success_url'])
 ```
 
@@ -50,7 +50,7 @@ class TestFormBlock(BaseFormBlock):
         ('message', TextFieldBlock),
     ]
 
-    def form_valid(self, value, form):
+    def form_valid(self, request, value, form):
         message = form.cleaned_data['message']
         if message.startswith('http://') or message.startswith('https://'):
             return HttpResponseRedirect(message)
