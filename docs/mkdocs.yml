@@ -1,5 +1,7 @@
 site_name: Wagtail formation
 repo_url: https://github.com/mwesterhof/wagtail_formation
+edit_uri: /mwesterhof/wagtail_formation/blob/main/docs/docs/
+    
 site_author: Marco Westerhof
 copyright: Copyright &copy; 2023, Marco Westerhof
 
