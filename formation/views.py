@@ -31,6 +31,7 @@ class ProcessBlockFormView(View):
             return response
 
         result = block_value.render_as_block({
+            'form_submitted': True,
             'form_success': form_success,
             'form_data': request.POST,
             'form_token': form_token,
