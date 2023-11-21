@@ -1,6 +1,10 @@
 =======
 History
 =======
+0.1.8 (2023-11-21)
+------------------
+
+* update default form valid and invalid methods
 
 0.1.7 (2023-09-18)
 ------------------
