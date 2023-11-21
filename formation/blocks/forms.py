@@ -118,10 +118,10 @@ class BaseFormBlock(blocks.StructBlock):
         context['self'].id = self.id
         return context
 
-    def form_valid(self, value, form):
+    def form_valid(self, request, value, form):
         return
 
-    def form_invalid(self, value, form):
+    def form_invalid(self, request, value, form):
         return
 
     class Meta:
