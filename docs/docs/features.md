@@ -11,3 +11,4 @@
 * Multiple forms can coexist on any page or other `StreamField` enabled object, and feedback is presented individually
 * Support for field- and form based *clean* methods
 * Optional support for a more traditional *success_url* type form handling
+* Access to *form_success* and *form_submitted* variables in form template context
