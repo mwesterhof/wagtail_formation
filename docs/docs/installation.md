@@ -25,6 +25,15 @@ MIGRATION_MODULES = {
 }
 ```
 
+Because formation uses a generic chooser panel for reusable form blocks, it's possible to directly create the reusable
+forms from this chooser. This will open a modal interface. If the reusable form relies on yet another chooser panel,
+opening yet another modal isn't handled correctly by wagtail. In those cases, it's recommended to turn off the
+ReusableForm creation from the chooser widget, using the following setting:
+
+```
+FORMATION_SHOW_REUSABLE_FORM_CREATE = False
+```
+
 Finally, make sure that the following is registered somewhere in your url config;
 
 ```

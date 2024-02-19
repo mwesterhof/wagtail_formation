@@ -22,7 +22,7 @@ class MessageFormBlock(BaseFormBlock):
         ('message', TextFieldBlock),
     ]
 
-    def form_valid(self, value, form):
+    def form_valid(self, request, value, form):
         name = form.cleaned_data['name']
         message = form.cleaned_data['message']
 

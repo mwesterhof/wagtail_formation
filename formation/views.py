@@ -1,9 +1,13 @@
+from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect
 from django.views.generic import View
 from generic_chooser.views import ModelChooserViewSet
 
 from formation.models import ReusableForm
 from formation.utils import find_block_value, token_processor
+
+
+show_reusable_form_create = getattr(settings, 'FORMATION_SHOW_REUSABLE_FORM_CREATE', True)
 
 
 def is_redirect(response):
@@ -43,4 +47,4 @@ class ProcessBlockFormView(View):
 
 class ReusableFormChooserViewSet(ModelChooserViewSet):
     model = ReusableForm
-    fields = ['name', 'form_content']
+    fields = ['name', 'form_content'] if show_reusable_form_create else None

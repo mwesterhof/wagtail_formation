@@ -31,4 +31,5 @@ class ReusableFormChooserBlock(ChooserBlock):
 
     class Meta:
         icon = 'form'
+        group = 'forms'
         template = 'formation/reusable_form.html'

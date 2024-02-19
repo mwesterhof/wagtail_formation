@@ -169,3 +169,6 @@ WAGTAILSEARCH_BACKENDS = {
 WAGTAILADMIN_BASE_URL = "http://example.com"
 
 DEBUG = True
+MIGRATION_MODULES = {
+    'formation': 'formation_migrations',
+}
