@@ -2,6 +2,11 @@
 History
 =======
 
+0.1.10 (2024-02-19)
+-------------------
+
+* add feature to optionally disable reusable form creation from chooser
+
 0.1.9 (2023-11-21)
 ------------------
 
