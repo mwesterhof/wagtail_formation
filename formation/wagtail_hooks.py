@@ -1,5 +1,5 @@
 from wagtail import hooks
-from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
+from wagtail_modeladmin.options import ModelAdmin, modeladmin_register
 
 from .models import ReusableForm
 from .views import ReusableFormChooserViewSet
