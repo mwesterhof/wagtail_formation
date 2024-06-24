@@ -2,7 +2,7 @@
 
 """The setup script."""
 
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -14,6 +14,7 @@ with open('HISTORY.rst') as history_file:
 requirements = [
     'cryptography==39.0.0',
     'wagtail-generic-chooser==0.5.1',
+    'wagtail_modeladmin==2.0.0'
 ]
 
 test_requirements = []
