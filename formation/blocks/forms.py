@@ -112,8 +112,9 @@ class BaseFormBlock(blocks.StructBlock):
         self.id = self._get_block_id(parent_context)
         context = super().get_context(value, parent_context=parent_context)
         form_data = context.get('form_data', None)
+        form_files = context.get('form_files', None)
         context.update({
-            'form': self.get_form_instance(value, form_data),
+            'form': self.get_form_instance(value, form_data, form_files),
         })
         context['self'].id = self.id
         return context

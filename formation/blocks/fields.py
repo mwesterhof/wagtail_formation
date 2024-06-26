@@ -153,6 +153,15 @@ class EmailFieldBlock(FieldBlockBase):
 
 
 class FileFieldBlock(FieldBlockBase):
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context=parent_context)
+        form = context['form']
+
+        context.update({
+            'field_value': form.files.get(value['name'], '')
+        })
+        return context
+
     def get_field(self, value, field_kwargs):
         return forms.FileField(label=value['label'], **field_kwargs)
 

@@ -39,6 +39,7 @@ class ProcessBlockFormView(View):
             'form_success': form_success,
             'form_data': request.POST,
             'form_token': form_token,
+            'form_files': form.files,
         })
         response = HttpResponse(result)
         response.headers['formationReplace'] = 1

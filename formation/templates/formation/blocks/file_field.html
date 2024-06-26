@@ -1,5 +1,5 @@
 {% extends "formation/blocks/base_field.html" %}
 
 {% block input_tag %}
-<input id="{{ field_id }}" name="{{ self.name }}" type="file" />
+<input id="{{ field_id }}" name="{{ self.name }}" value="{{ field_value }}" type="file" />
 {% endblock %}
