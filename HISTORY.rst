@@ -1,6 +1,11 @@
 =======
 History
 =======
+0.1.11 (2024-06-26)
+-------------------
+
+* use third party modeladmin package
+* better filefield support
 
 0.1.10 (2024-02-19)
 -------------------
