@@ -12,7 +12,6 @@ Add the following to your `INSTALLED_APPS`, preferably at the end;
 INSTALLED_APPS = [
     ...
     'formation',
-    'generic_chooser',
 ]
 ```
 
@@ -23,15 +22,6 @@ a project folder to house formation migrations;
 MIGRATION_MODULES = {
     'formation': 'formation_migrations',  # this can be any convenient location in your project
 }
-```
-
-Because formation uses a generic chooser panel for reusable form blocks, it's possible to directly create the reusable
-forms from this chooser. This will open a modal interface. If the reusable form relies on yet another chooser panel,
-opening yet another modal isn't handled correctly by wagtail. In those cases, it's recommended to turn off the
-ReusableForm creation from the chooser widget, using the following setting:
-
-```
-FORMATION_SHOW_REUSABLE_FORM_CREATE = False
 ```
 
 Finally, make sure that the following is registered somewhere in your url config;

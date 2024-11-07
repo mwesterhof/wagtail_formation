@@ -1,16 +1,18 @@
-from wagtail import hooks
-from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
+from wagtail.snippets.models import register_snippet
 
-from .models import ReusableForm
-from .views import ReusableFormChooserViewSet
+from .views import ReusableFormViewSet
+from .blocks import registered_forms
 
-
-@modeladmin_register
-class ReusableFormAdmin(ModelAdmin):
-    model = ReusableForm
-    menu_icon = 'form'
+if registered_forms:
+    register_snippet(ReusableFormViewSet)
 
 
-@hooks.register('register_admin_viewset')
-def register_reusable_form_chooser_viewset():
-    return ReusableFormChooserViewSet('form_chooser', url_prefix='form-chooser')
+# @modeladmin_register
+# class ReusableFormAdmin(ModelAdmin):
+#     model = ReusableForm
+#     menu_icon = 'form'
+#
+#
+# @hooks.register('register_admin_viewset')
+# def register_reusable_form_chooser_viewset():
+#     return ReusableFormChooserViewSet('form_chooser', url_prefix='form-chooser')

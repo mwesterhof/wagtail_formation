@@ -1,5 +1,4 @@
-from django.utils.functional import cached_property
-from wagtail.blocks import ChooserBlock
+from wagtail.snippets.blocks import SnippetChooserBlock
 
 from .forms import BaseFormBlock  # noqa
 from .fields import *  # noqa
@@ -15,19 +14,11 @@ def reusable_form(name):
     return _register
 
 
-class ReusableFormChooserBlock(ChooserBlock):
-    @cached_property
-    def target_model(self):
+class ReusableFormChooserBlock(SnippetChooserBlock):
+    def __init__(self, **kwargs):
         from formation.models import ReusableForm  # noqa
-        return ReusableForm
-
-    @cached_property
-    def widget(self):
-        from formation.widgets import ReusableFormChooser  # noqa
-        return ReusableFormChooser()
-
-    def get_form_state(self, value):
-        return self.widget.get_value_data(value)
+        kwargs['target_model'] = ReusableForm
+        super().__init__(**kwargs)
 
     class Meta:
         icon = 'form'

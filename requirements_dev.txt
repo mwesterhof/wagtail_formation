@@ -14,4 +14,3 @@ black==21.7b0
 wagtail==4.2.1
 Django==4.1.7
 cryptography==39.0.2
-wagtail-generic-chooser==0.5.1
