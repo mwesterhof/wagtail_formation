@@ -1,12 +1,11 @@
 from wagtail import hooks
-from wagtail_modeladmin.options import ModelAdmin, modeladmin_register
+from wagtail.admin.viewsets.model import ModelViewSet
 
 from .models import ReusableForm
 from .views import ReusableFormChooserViewSet
 
 
-@modeladmin_register
-class ReusableFormAdmin(ModelAdmin):
+class ReusableFormAdmin(ModelViewSet):
     model = ReusableForm
     menu_icon = 'form'
 

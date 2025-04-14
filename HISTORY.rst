@@ -1,6 +1,13 @@
 =======
 History
 =======
+0.2.00 (2025-04-14)
+-------------------
+
+* remove support for third-party modeladmin package in favor of wagtail functionality
+* official support for wagtail>=6.0
+* drop support for python <3.10
+
 0.1.11 (2024-06-26)
 -------------------
 

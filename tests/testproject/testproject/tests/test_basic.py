@@ -9,6 +9,7 @@ from home.models import HomePage
 
 form_token_regex = b'name="form_token" value="([^"]+)"'
 
+
 class TestTest(unittest.TestCase):
     def setUp(self):
         self.client = Client()
@@ -41,4 +42,3 @@ class TestTest(unittest.TestCase):
             {'message': 'my-message', 'form_token': form_token}
         )
         self.assertFalse(response.context.get('form_success'))
-
