@@ -49,3 +49,4 @@ class ProcessBlockFormView(View):
 class ReusableFormChooserViewSet(ModelChooserViewSet):
     model = ReusableForm
     fields = ['name', 'form_content'] if show_reusable_form_create else None
+    icon = 'form'

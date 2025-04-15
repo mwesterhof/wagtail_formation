@@ -34,7 +34,7 @@ History
 
 * pass request object to form_(in)valid
 
-0.1.6 (2023-08-07
+0.1.6 (2023-08-07)
 ------------------
 
 * enforce management of migrations to developer using the package

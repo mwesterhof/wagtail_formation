@@ -11,7 +11,7 @@ twine==6.1.0
 pytest==8.3.5
 black==25.1.0
 
-wagtail==6.0.6
+wagtail==6.3.3
 Django==5.1.8
 cryptography==44.0.2
 wagtail-generic-chooser==0.6.1
