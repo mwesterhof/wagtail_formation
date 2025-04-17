@@ -23,7 +23,7 @@ class BaseFormBlock(blocks.StructBlock):
             field = field_spec.get(name)
             found_block = getattr(field, 'block', None)
 
-            if type(found_block) != block_type:
+            if not isinstance(found_block, block_type):
                 error_list.append(
                     _("This form requires a %(block_type_name)s named \"%(name)s\" ") % {
                         'block_type_name': block_type.__name__,

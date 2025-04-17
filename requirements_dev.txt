@@ -1,18 +1,17 @@
-pip==19.2.3
-bump2version==0.5.11
-wheel==0.33.6
-watchdog==0.9.0
-flake8==3.7.8
-tox==3.14.0
-coverage==4.5.4
-Sphinx==1.8.5
-twine==1.14.0
+pip>=23.0.0
+bump2version==1.0.1
+wheel==0.45.1
+watchdog==6.0.0
+flake8==7.2.0
+tox==4.25.0
+coverage==7.8.0
+Sphinx==7.4.7
+twine==6.1.0
 
-pytest==6.2.4
-black==21.7b0
+pytest==8.3.5
+black==25.1.0
 
-wagtail==4.2.1
-Django==4.1.7
-cryptography==39.0.2
-wagtail-generic-chooser==0.5.1
-wagtail_modeladmin==2.0.0
+wagtail==6.3.3
+Django==5.1.8
+cryptography==44.0.2
+wagtail-generic-chooser==0.6.1

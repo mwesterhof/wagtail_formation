@@ -1,6 +1,13 @@
 =======
 History
 =======
+0.2.00 (2025-04-14)
+-------------------
+
+* remove support for third-party modeladmin package in favor of wagtail functionality
+* official support for wagtail>=6.0
+* drop support for python <3.10
+
 0.1.11 (2024-06-26)
 -------------------
 
@@ -27,7 +34,7 @@ History
 
 * pass request object to form_(in)valid
 
-0.1.6 (2023-08-07
+0.1.6 (2023-08-07)
 ------------------
 
 * enforce management of migrations to developer using the package

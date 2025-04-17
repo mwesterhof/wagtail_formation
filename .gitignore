@@ -108,3 +108,6 @@ ENV/
 
 # compiled docs
 docs/site
+
+# database file
+.sqlite3
