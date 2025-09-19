@@ -12,8 +12,8 @@ with open('HISTORY.rst') as history_file:
 
 
 requirements = [
-    'cryptography==39.0.0',
-    'wagtail-generic-chooser==0.6.1',
+    'cryptography==46.0.1',
+    'wagtail-generic-chooser==0.7',
 ]
 
 test_requirements = []
