@@ -2,6 +2,13 @@
 History
 =======
 
+0.2.1 (2025-09-19)
+------------------
+
+* update cryptography dependency
+* update generic chooser dependency
+* support wagtail 7
+
 0.2.0 (2025-04-17)
 ------------------
 
