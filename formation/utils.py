@@ -44,15 +44,16 @@ def extract_elements_recursive(container, results, check_method, id_based=False)
         elif hasattr(container, 'bound_blocks'):
             block_id = container.bound_blocks[i].id
 
+        block = getattr(element, 'block', None)
         if check_method(element):
             element = getattr(element, 'value', element)
             if id_based:
                 results[block_id] = element
             else:
                 results.append(element)
-        elif isinstance(element.block, ListBlock) or isinstance(element.block, StreamBlock):
+        elif isinstance(block, ListBlock) or isinstance(block, StreamBlock):
             extract_elements_recursive(element.value, results, check_method, id_based)
-        elif isinstance(element.block, StructBlock):
+        elif isinstance(block, StructBlock):
             value = getattr(element, 'value', element)
             extract_elements_recursive([
                 element for _, element in value.bound_blocks.items()
@@ -71,7 +72,8 @@ def find_block_value(content_type_id, object_id, block_id):
 
     def _formblock_check(element):
         from formation.blocks import BaseFormBlock
-        return isinstance(element.block, BaseFormBlock)
+        block = getattr(element, 'block', None)
+        return isinstance(block, BaseFormBlock)
 
     for field in fields:
         extract_elements_recursive(field, form_blocks, _formblock_check, True)
